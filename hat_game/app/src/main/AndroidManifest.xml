@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_4_players_names"></activity>
-        <activity android:name=".Activity_3_rules" />
-        <activity android:name=".Activity_2" />
+        <activity android:name=".StartActivity"></activity>
+        <activity android:name=".StatisticsActivity" />
+        <activity android:name=".AddWordActivity" />
+        <activity android:name=".PlayersNamesActivity" />
+        <activity android:name=".RulesActivity" />
+        <activity android:name=".ModeActivity" />
+        <activity android:name=".SettingsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RulesActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="top"
+        android:layout_marginTop="40sp">
+
+        <TextView
+            android:id="@+id/textViewRulesHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text='Правила игры "Шляпа"'
+            android:textSize="30sp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/textViewRules"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:text="@string/rules"
+            android:layout_marginTop="40sp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
