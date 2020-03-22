@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40sp"
-            android:text="Команды"
+            android:text="Имена команд"
             android:textSize="30sp"
             android:layout_gravity="center"/>
 
@@ -29,18 +29,19 @@
             android:layout_marginTop="40sp">
 
             <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Команда 1:"
+                android:layout_marginRight="20sp"/>
+
+            <EditText
                 android:id="@+id/textView_player_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Зайцы:"
+                android:text="Зайцы"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20sp"
-                android:text="0" />
         </LinearLayout>
 
         <LinearLayout
@@ -51,18 +52,18 @@
             android:layout_marginTop="40sp">
 
             <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Команда 2:"
+                android:layout_marginRight="20sp"/>
+
+            <EditText
                 android:id="@+id/textView_player_name2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Волки:"
+                android:text="Волки"
                 android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:layout_marginLeft="20sp"/>
 
         </LinearLayout>
 
@@ -74,6 +75,7 @@
             tools:ignore="OnClick"
             android:layout_gravity="center"
             android:layout_marginTop="40sp"/>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
