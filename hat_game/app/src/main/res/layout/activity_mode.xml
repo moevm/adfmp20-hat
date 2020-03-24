@@ -37,7 +37,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15sp"
                 android:text="Легкий"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:checked="true"/>
 
             <RadioButton
                 android:id="@+id/checkBoxNorm"

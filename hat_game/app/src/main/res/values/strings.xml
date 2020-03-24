@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hat</string>
+    <string name="app_name">Hat Game</string>
     <string name="time_for_step">Количество секунд \n на ход</string>
     <string name="rules">Команды ходят по очереди.
         \n Ход заключается в том, что один из игроков достает слова из шляпы по одному и объясняет их сокоманднику.

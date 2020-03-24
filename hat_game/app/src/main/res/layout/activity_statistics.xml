@@ -40,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20sp"
-                android:text="0" />
+                android:text="Угадано слов:" />
         </LinearLayout>
 
         <LinearLayout
@@ -61,8 +61,8 @@
                 android:id="@+id/textView8_st"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
-                android:layout_marginLeft="20sp"/>
+                android:layout_marginLeft="20sp"
+                android:text="Угадано слов:" />
 
         </LinearLayout>
     </LinearLayout>

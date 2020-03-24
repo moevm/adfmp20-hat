@@ -7,47 +7,99 @@
     tools:context=".StartActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="40sp">
+        android:layout_marginTop="10sp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
             android:gravity="center">
-
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Крокодилы" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewComand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Команда"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textViewComName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="зайцы"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="60sp">
+                android:layout_marginLeft="150sp">
 
                 <TextView
-                    android:id="@+id/textView15"
+                    android:id="@+id/textViewNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Количество слов в шляпе" />
+                    android:text="Количество слов в шляпе"
+                    android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/textView16"
+                    android:id="@+id/textViewNumWords"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="0" />
+                    android:layout_gravity="right"
+                    android:text="0"
+                    android:textSize="18sp" />
+
             </LinearLayout>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewNameTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="Время"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="15"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/button_to_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="150sp"
+            android:text="Поехали!"
+            tools:ignore="OnClick" />
+
+
+
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -20,9 +20,9 @@ class AddWordActivity : AppCompatActivity() {
             updateWordsQuantity(gameSettings)
         }
 
-        button_continue_to_game.setOnClickListener {
+        button_continue_to_start.setOnClickListener {
             //TODO create new activity
-            val intent1 = Intent(this, AddWordActivity::class.java)
+            val intent1 = Intent(this, StartActivity::class.java)
             intent1.putExtra("gameSettings", gameSettings)
             startActivity(intent1)
         }
