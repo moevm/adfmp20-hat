@@ -21,7 +21,6 @@ class AddWordActivity : AppCompatActivity() {
         }
 
         button_continue_to_start.setOnClickListener {
-            //TODO create new activity
             val intent1 = Intent(this, StartActivity::class.java)
             intent1.putExtra("gameSettings", gameSettings)
             startActivity(intent1)
