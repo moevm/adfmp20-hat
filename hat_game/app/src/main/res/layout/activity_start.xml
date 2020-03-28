@@ -18,6 +18,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50sp"
             android:layout_marginLeft="20sp"
             android:layout_marginRight="20sp"
             android:gravity="center"
@@ -32,7 +33,7 @@
                     android:id="@+id/textViewComand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Команда 1: "
+                    android:text="Угадывает команда: "
                     android:textSize="18sp" />
 
                 <TextView
@@ -101,7 +102,41 @@
             android:layout_marginTop="150sp"
             android:text="Поехали!"
             tools:ignore="OnClick" />
+        <TextView
+            android:id="@+id/textViewWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Слово"
+            android:visibility="gone"
+            android:textSize="50sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="200sp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="20sp"
+                android:visibility="gone"
+                android:text="Угадано" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="20sp"
+                android:visibility="gone"
+                android:text="Пас" />
+        </LinearLayout>
 
 
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

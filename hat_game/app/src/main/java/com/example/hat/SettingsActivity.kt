@@ -19,7 +19,7 @@ class SettingsActivity : AppCompatActivity() {
             val intent = Intent(this, PlayersNamesActivity::class.java)
             val gameSettings = GameSettings()
             gameSettings.secondsPerStep =
-                spinner_time_for_step.selectedItem.toString().toIntOrNull()
+                spinner_time_for_step.selectedItem.toString().toLongOrNull()
             intent.putExtra("gameSettings", gameSettings)
             startActivity(intent)
         }
