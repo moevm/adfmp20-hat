@@ -33,7 +33,7 @@
                     android:id="@+id/textViewComand"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Угадывает команда: "
+                    android:text="Угадывает: "
                     android:textSize="18sp" />
 
                 <TextView
@@ -94,6 +94,30 @@
                 android:textSize="18sp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20sp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textViewNameScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:text="Счет: "
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="0"
+                android:textSize="18sp" />
+        </LinearLayout>
+
         <Button
             android:id="@+id/button_to_start"
             android:layout_width="wrap_content"
@@ -118,7 +142,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/button_guessed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -127,7 +151,7 @@
                 android:text="Угадано" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/button_pas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
