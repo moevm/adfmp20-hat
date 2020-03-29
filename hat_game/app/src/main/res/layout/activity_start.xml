@@ -9,8 +9,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="20sp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints">
@@ -18,8 +18,8 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50sp"
             android:layout_marginLeft="20sp"
+            android:layout_marginTop="50sp"
             android:layout_marginRight="20sp"
             android:gravity="center"
             android:orientation="horizontal">
@@ -126,14 +126,16 @@
             android:layout_marginTop="150sp"
             android:text="Поехали!"
             tools:ignore="OnClick" />
+
         <TextView
             android:id="@+id/textViewWord"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginTop="60sp"
             android:text="Слово"
-            android:visibility="gone"
-            android:textSize="50sp" />
+            android:textSize="50sp"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -145,19 +147,19 @@
                 android:id="@+id/button_guessed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginRight="20sp"
-                android:visibility="gone"
-                android:text="Угадано" />
+                android:layout_weight="1"
+                android:text="Угадано"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/button_pas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:layout_marginLeft="20sp"
-                android:visibility="gone"
-                android:text="Пас" />
+                android:layout_weight="1"
+                android:text="Пас"
+                android:visibility="gone" />
         </LinearLayout>
 
 
