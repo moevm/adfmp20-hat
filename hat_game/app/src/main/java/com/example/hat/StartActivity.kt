@@ -197,6 +197,7 @@ class StartActivity : AppCompatActivity() {
     }
 
     private fun finishGame(gameSettings: GameSettings, view: View) {
+        currentGame.saveStatisticsToFile(applicationContext)
         val inflater =
             view.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val popupView: View = inflater.inflate(R.layout.popup_game_finished, null)

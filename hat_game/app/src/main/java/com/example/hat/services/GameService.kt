@@ -1,8 +1,10 @@
 package com.example.hat.services
 
+import android.content.Context
 import com.example.hat.entity.CurrentGameSettings
 import com.example.hat.exception.NoActiveWordsException
 import com.example.hat.exception.VocabularyIsEmptyException
+import com.example.hat.util.UtilHat
 import kotlin.math.roundToInt
 
 class GameService {
@@ -63,6 +65,20 @@ class GameService {
         game?.currentScore = 0
         this.game?.activeWords = mutableSetOf()
         this.game?.activeWords?.addAll(this.game?.vocabular?.toTypedArray() ?: arrayOf())
+    }
+
+    fun saveStatisticsToFile(context: Context) {
+        val statistics = UtilHat.loadStatistics(context)
+
+        val scoreTeam1 = statistics.statistics[game?.team1Score?.first]
+        statistics.statistics[game?.team1Score?.first] =
+            game?.team1Score?.second?.plus(scoreTeam1 ?: 0)
+
+        val scoreTeam2 = statistics.statistics[game?.team2Score?.first]
+        statistics.statistics[game?.team2Score?.first] =
+            game?.team2Score?.second?.plus(scoreTeam2 ?: 0)
+
+        UtilHat.saveStatistics(statistics, context)
     }
 
     fun getTeam1Score(): Long {

@@ -26,7 +26,6 @@ class ModeActivity : AppCompatActivity() {
                 checkBoxHard.isChecked -> gameSettings.vocabular =
                     UtilHat.getVocabular(applicationContext)?.hard
             }
-            Log.d("Jooooooo,.s", gameSettings.toString())
             val intent1 = Intent(this, AddWordActivity::class.java)
             intent1.putExtra("gameSettings", gameSettings)
             startActivity(intent1)
