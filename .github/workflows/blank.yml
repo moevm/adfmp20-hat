@@ -21,11 +21,10 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
-
     # Runs a single command using the runners shell
-    - name: Make gradlew executable
-      run: chmod +x ./gradlew
-
-    # Runs a set of commands using the runners shell
+    - name: Go to the project directory
+      run: cd hat_game
     - name: Run unit tests
-      run: ./gradlew test
+      run: |
+        chmod +x ./gradlew
+        ./gradlew test
