@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.hat.entity.Statistics
-import com.example.hat.util.UtilHat
+import com.example.hat.services.StatisticsService
 import kotlinx.android.synthetic.main.activity_statistics.*
 
 
@@ -15,7 +15,7 @@ class StatisticsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_statistics)
-        addStatisticsInfo(UtilHat.loadStatistics(applicationContext))
+        addStatisticsInfo(StatisticsService().loadStatistics(applicationContext))
     }
 
     private fun addStatisticsInfo(statistics: Statistics) {
