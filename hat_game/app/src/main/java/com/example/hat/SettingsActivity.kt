@@ -7,9 +7,6 @@ import android.widget.ArrayAdapter
 import com.example.hat.entity.GameSettings
 import com.example.hat.util.UtilHat
 import kotlinx.android.synthetic.main.activity_settings.*
-import kotlinx.android.synthetic.main.activity_settings.checkBoxEasy
-import kotlinx.android.synthetic.main.activity_settings.checkBoxHard
-import kotlinx.android.synthetic.main.activity_settings.checkBoxNorm
 
 
 class SettingsActivity : AppCompatActivity() {

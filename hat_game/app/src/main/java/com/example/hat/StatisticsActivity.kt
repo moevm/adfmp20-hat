@@ -21,19 +21,20 @@ class StatisticsActivity : AppCompatActivity() {
     private fun addStatisticsInfo(statistics: Statistics) {
         val layout = statistics_childLayout
         var index = 1
-        statistics.statistics.toList().sortedBy { (_, value) -> (-1)*(value?:0) }.toMap().forEach {
-            val textEntry = TextView(this)
-            textEntry.text = "${index}. ${it.key}: ${it.value}"
-            val params: LinearLayout.LayoutParams =
-                LinearLayout.LayoutParams(
-                    ActionBar.LayoutParams.WRAP_CONTENT,
-                    ActionBar.LayoutParams.WRAP_CONTENT
-                )
-            params.setMargins(0, 30, 0, 0)
-            textEntry.layoutParams = params
-            textEntry.textSize = 26F
-            layout.addView(textEntry)
-            index++
-        }
+        statistics.statistics.toList().sortedBy { (_, value) -> (-1) * (value ?: 0) }.toMap()
+            .forEach {
+                val textEntry = TextView(this)
+                textEntry.text = "${index}. ${it.key}: ${it.value}"
+                val params: LinearLayout.LayoutParams =
+                    LinearLayout.LayoutParams(
+                        ActionBar.LayoutParams.WRAP_CONTENT,
+                        ActionBar.LayoutParams.WRAP_CONTENT
+                    )
+                params.setMargins(0, 30, 0, 0)
+                textEntry.layoutParams = params
+                textEntry.textSize = 26F
+                layout.addView(textEntry)
+                index++
+            }
     }
 }

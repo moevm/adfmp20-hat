@@ -1,8 +1,8 @@
 package com.example.hat
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.example.hat.entity.GameSettings
 import kotlinx.android.synthetic.main.activity_players_names.*
 
