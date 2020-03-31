@@ -5,7 +5,11 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.ArrayAdapter
 import com.example.hat.entity.GameSettings
+import com.example.hat.util.UtilHat
 import kotlinx.android.synthetic.main.activity_settings.*
+import kotlinx.android.synthetic.main.activity_settings.checkBoxEasy
+import kotlinx.android.synthetic.main.activity_settings.checkBoxHard
+import kotlinx.android.synthetic.main.activity_settings.checkBoxNorm
 
 
 class SettingsActivity : AppCompatActivity() {
@@ -20,6 +24,16 @@ class SettingsActivity : AppCompatActivity() {
             val gameSettings = GameSettings()
             gameSettings.secondsPerStep =
                 spinner_time_for_step.selectedItem.toString().toLongOrNull()
+
+            when {
+                checkBoxEasy.isChecked -> gameSettings.vocabular =
+                    UtilHat.getVocabular(applicationContext)?.easy
+                checkBoxNorm.isChecked -> gameSettings.vocabular =
+                    UtilHat.getVocabular(applicationContext)?.normal
+                checkBoxHard.isChecked -> gameSettings.vocabular =
+                    UtilHat.getVocabular(applicationContext)?.hard
+            }
+
             intent.putExtra("gameSettings", gameSettings)
             startActivity(intent)
         }

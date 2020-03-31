@@ -17,7 +17,7 @@ class PlayersNamesActivity : AppCompatActivity() {
                 intent.getSerializableExtra("gameSettings") as GameSettings
             gameSettings.team1 = textView_player_name.text.toString()
             gameSettings.team2 = textView_player_name2.text.toString()
-            val intent1 = Intent(this, ModeActivity::class.java)
+            val intent1 = Intent(this, AddWordActivity::class.java)
             intent1.putExtra("gameSettings", gameSettings)
             startActivity(intent1)
         }

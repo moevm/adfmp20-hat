@@ -14,7 +14,6 @@
         <activity android:name=".AddWordActivity" />
         <activity android:name=".PlayersNamesActivity" />
         <activity android:name=".RulesActivity" />
-        <activity android:name=".ModeActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
