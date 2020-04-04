@@ -15,7 +15,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPopUp"
+            android:background="@color/colorYellow"
             android:orientation="vertical"
             android:padding="10dp">
 
@@ -24,7 +24,7 @@
                 android:layout_width="240sp"
                 android:layout_height="90sp"
                 android:layout_gravity="center"
-                android:background="@color/colorPopUp"
+                android:background="@color/colorYellow"
                 android:padding="10dp"
                 android:text="JOO"
                 android:textAlignment="center"

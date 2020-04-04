@@ -20,7 +20,7 @@ class GameServiceUnitTest {
         currentGameSettings = CurrentGameSettings(
             Pair("team1", 0),
             Pair("team2", 0),
-            vocabular = mutableSetOf<String>("one", "two", "three")
+            vocabular = mutableSetOf("one", "two", "three")
         )
         gameService = GameService()
         currentGameSettings?.let { gameService?.setGame(it) }

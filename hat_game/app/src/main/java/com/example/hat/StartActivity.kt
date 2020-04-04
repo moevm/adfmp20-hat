@@ -119,8 +119,16 @@ class StartActivity : AppCompatActivity() {
         textViewNumWords.text = number.toString()
     }
 
+    @SuppressLint("SetTextI18n")
     private fun updateSecondsField(seconds: Long?) {
-        textViewTime.text = seconds.toString()
+        if (seconds != null) {
+            if(seconds > 9) {
+                textViewTime.text = seconds.toString()
+            }
+            else {
+                textViewTime.text = "0$seconds"
+            }
+        }
     }
 
     private fun updateTeamField(team: String?) {
@@ -161,6 +169,9 @@ class StartActivity : AppCompatActivity() {
         val focusable = true
         //Create a window with our parameters
         val popupWindow = PopupWindow(popupView, width, height, focusable)
+        button_to_start.visibility = View.GONE
+        textViewNameTime.visibility = View.GONE
+        textViewTime.visibility = View.GONE
         //Set the location of the window on the screen
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
         //Initialize the elements of our window, install the handler
@@ -173,6 +184,9 @@ class StartActivity : AppCompatActivity() {
             popupWindow.dismiss()
             Toast.makeText(view.context, "Удачи, $activeTeam!", Toast.LENGTH_SHORT)
                 .show()
+            button_to_start.visibility = View.VISIBLE
+            textViewNameTime.visibility = View.VISIBLE
+            textViewTime.visibility = View.VISIBLE
         }
         //Handler for clicking on the inactive zone of the window
         popupView.setOnTouchListener { _, _ ->

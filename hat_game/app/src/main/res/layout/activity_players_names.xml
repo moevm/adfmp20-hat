@@ -18,6 +18,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40sp"
             android:text="Имена команд"
+            android:textColor="@color/colorRed"
+            android:textStyle="bold"
             android:textSize="30sp"
             android:layout_gravity="center"/>
 
@@ -39,6 +41,8 @@
                 android:id="@+id/textView_player_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorRed"
+                android:textCursorDrawable="@color/colorRed"
                 android:text="Зайцы"
                 android:textSize="18sp" />
 
@@ -62,6 +66,8 @@
                 android:id="@+id/textView_player_name2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="@color/colorRed"
+                android:textCursorDrawable="@color/colorRed"
                 android:text="Волки"
                 android:textSize="18sp" />
 
@@ -69,9 +75,10 @@
 
         <Button
             android:id="@+id/button_to_mode"
-            android:layout_width="wrap_content"
+            android:layout_width="300sp"
             android:layout_height="wrap_content"
             android:text="Продолжить"
+            android:background="@drawable/button_states"
             tools:ignore="OnClick"
             android:layout_gravity="center"
             android:layout_marginTop="40sp"/>

@@ -16,7 +16,7 @@
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPopUp"
+            android:background="@color/colorYellow"
             android:orientation="vertical">
 
             <TextView
@@ -24,7 +24,7 @@
                 android:layout_gravity="center"
                 android:layout_width="240sp"
                 android:layout_height="90sp"
-                android:background="@color/colorPopUp"
+                android:background="@color/colorYellow"
                 android:text="JOO"
                 android:textAlignment="center"
                 android:textSize="20sp"
