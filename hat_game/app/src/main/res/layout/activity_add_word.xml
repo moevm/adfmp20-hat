@@ -86,7 +86,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50sp"
             android:background="@drawable/button_states"
-            android:onClick="click_button_continue_to_6_activity"
             android:text="Продолжить"
             tools:ignore="OnClick"
             android:layout_gravity="center"/>
