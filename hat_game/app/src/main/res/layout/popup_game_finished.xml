@@ -27,9 +27,9 @@
                 android:background="@color/colorYellow"
                 android:padding="10dp"
                 android:text="JOO"
+                android:textColor="@color/colorBlack"
                 android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:textSize="18sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -38,16 +38,22 @@
 
                 <Button
                     android:id="@+id/popup_button_menu"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:layout_marginRight="5sp"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="@color/colorBlack"
                     android:text="Главная" />
 
                 <Button
                     android:id="@+id/popup_button_statistics"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5sp"
                     android:layout_weight="1"
+                    android:background="@color/colorPrimaryDark"
+                    android:textColor="@color/colorBlack"
                     android:text="Статистика" />
             </LinearLayout>
         </LinearLayout>

@@ -7,121 +7,97 @@
     tools:context=".StartActivity">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginTop="50sp"
-            android:layout_marginRight="20sp"
-            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginTop="40sp"
             android:orientation="horizontal">
 
+            <TextView
+                android:id="@+id/textViewComand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Угадывает: "
+                android:textColor="@color/colorRed"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/textViewComName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorRed"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20sp"
+            android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textViewComand"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Угадывает: "
-                    android:textSize="18sp" />
-
-                <TextView
-                    android:id="@+id/textViewComName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="зайцы"
-                    android:textSize="18sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15sp"
+                android:layout_gravity="center"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/textViewNum"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Слов в шляпе: "
+                    android:text="Слов в шляпе:  "
+                    android:textColor="@color/colorBlack"
                     android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textViewNumWords"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:text="0"
+                    android:textColor="@color/colorBlack"
                     android:textSize="18sp" />
 
             </LinearLayout>
 
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20sp"
+                android:orientation="horizontal">
 
+                <TextView
+                    android:id="@+id/textViewNameScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="Счет: "
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/textViewScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="0"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20sp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textViewNameScore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:text="Счет: "
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/textViewScore"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="0"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/button_to_start"
-            android:layout_width="300sp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="150sp"
-            android:background="@drawable/button_states"
-            android:text="Поехали!"
-            tools:ignore="OnClick" />
-
-        <TextView
-            android:id="@+id/textViewWord"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60sp"
-            android:text="Слово"
-            android:textColor="@color/colorRed"
-            android:textSize="50sp"
-            android:textStyle="bold"
-            android:visibility="gone" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="60sp"
+            android:layout_marginTop="15sp"
             android:orientation="horizontal">
 
             <TextView
@@ -130,8 +106,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:text="00:"
-                android:textColor="@color/colorRed"
-                android:textSize="50sp" />
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp" />
 
             <TextView
                 android:id="@+id/textViewTime"
@@ -139,33 +115,61 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="15"
-                android:textColor="@color/colorRed"
-                android:textSize="50sp" />
+                android:textColor="@color/colorBlack"
+                android:textSize="30sp" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button_to_start"
+            android:layout_width="300sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="60sp"
+            android:background="@drawable/button_states"
+            android:text="Поехали!"
+            android:textColor="@color/colorBlack"
+            tools:ignore="OnClick" />
+
+        <TextView
+            android:id="@+id/textViewWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40sp"
+            android:text="Слово"
+            android:textColor="@color/colorRed"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="140sp"
+            android:layout_marginTop="70sp"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button_guessed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20sp"
+                android:layout_marginRight="10sp"
+                android:layout_marginLeft="30sp"
                 android:layout_weight="1"
                 android:background="@drawable/button_start_activity"
                 android:text="Угадано"
+                android:textColor="@color/colorRed"
                 android:visibility="gone" />
 
             <Button
                 android:id="@+id/button_pas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20sp"
+                android:layout_marginLeft="10sp"
+                android:layout_marginRight="30sp"
                 android:layout_weight="1"
-                android:background="@drawable/button_start_activity"
+                android:background="@drawable/button_pass"
+                android:textColor="@color/colorYellow"
                 android:text="Пас"
                 android:visibility="gone" />
         </LinearLayout>

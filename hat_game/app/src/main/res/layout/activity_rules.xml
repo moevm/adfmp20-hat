@@ -27,8 +27,11 @@
             android:id="@+id/textViewRules"
             android:layout_width="300sp"
             android:layout_height="wrap_content"
-            android:text="@string/rules"
+            android:layout_gravity="center"
             android:layout_marginTop="40sp"
-            android:layout_gravity="center"/>
+            android:text="@string/rules"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

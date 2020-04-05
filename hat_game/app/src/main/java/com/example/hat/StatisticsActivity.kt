@@ -1,7 +1,10 @@
 package com.example.hat
 
 import android.app.ActionBar
+import android.content.res.ColorStateList
 import android.os.Bundle
+import android.support.annotation.ColorInt
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -32,7 +35,8 @@ class StatisticsActivity : AppCompatActivity() {
                     )
                 params.setMargins(0, 30, 0, 0)
                 textEntry.layoutParams = params
-                textEntry.textSize = 26F
+                textEntry.textSize = 20F
+                textEntry.setTextColor(ContextCompat.getColor(applicationContext, R.color.colorBlack))
                 layout.addView(textEntry)
                 index++
             }

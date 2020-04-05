@@ -25,16 +25,18 @@
                 android:layout_width="240sp"
                 android:layout_height="90sp"
                 android:background="@color/colorYellow"
+                android:textColor="@color/colorBlack"
                 android:text="JOO"
                 android:textAlignment="center"
-                android:textSize="20sp"
-                android:textStyle="bold"
+                android:textSize="18sp"
                 android:padding="10dp"/>
 
             <Button
                 android:id="@+id/popup_button_ok"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="@color/colorBlack"
                 android:text="OK" />
         </LinearLayout>
 
