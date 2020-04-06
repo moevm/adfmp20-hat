@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.example.hat.entity.GameSettings
 import kotlinx.android.synthetic.main.activity_add_word.*
+import java.util.*
 
 class AddWordActivity : AppCompatActivity() {
 
@@ -16,7 +17,7 @@ class AddWordActivity : AppCompatActivity() {
 
         button_to_add_word.setOnClickListener {
             val word = editText_to_add_word.text.toString()
-            gameSettings.vocabular?.add(word.trimStart().trimEnd())
+            gameSettings.vocabular?.add(word.trimStart().trimEnd().toLowerCase(Locale.ROOT))
             updateWordsQuantity(gameSettings)
         }
 
