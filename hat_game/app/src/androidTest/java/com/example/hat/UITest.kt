@@ -23,10 +23,6 @@ class UITest {
         val team1 = "Julia"
         val team2 = "Sergey"
 
-        //Main Activity: check text
-        onView(withId(R.id.textView_hat)).check(matches(withText("Шляпа")))
-        onView(withId(R.id.textView_hat)).check(matches(isDisplayed()))
-
         //Main Activity: check button_to_statistics
         onView(withId(R.id.button_to_statistics)).check(matches(withText("Статистика")))
         onView(withId(R.id.button_to_statistics)).check(matches(isDisplayed()))

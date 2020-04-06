@@ -5,51 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <RelativeLayout
-        android:id="@+id/hat_image_layout"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="30sp"
-        android:layout_height="fill_parent"
-        tools:ignore="MissingConstraints">
 
-        <ImageView
-            android:id="@+id/hat_image"
-            android:layout_width="70sp"
-            android:layout_marginStart="200sp"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:adjustViewBounds="true"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/hat_2" />
-    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="top"
         android:orientation="vertical">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="40sp">
+            android:layout_marginTop="40sp"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView_hat"
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/hat_image"
+                android:layout_width="180sp"
                 android:layout_height="wrap_content"
-                android:text="Шляпа"
-                android:textAlignment="center"
-                android:textColor="@color/colorRed"
-                android:textSize="50sp"
-                android:textStyle="bold" />
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:src="@drawable/hat_main_activity" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:layout_marginTop="30sp"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <Space
@@ -62,8 +45,8 @@
                     android:layout_width="300sp"
                     android:layout_height="wrap_content"
                     android:layout_margin="18dp"
-                    android:text="Новая игра"
                     android:background="@drawable/button_states"
+                    android:text="Новая игра"
                     android:textSize="18sp"
                     tools:ignore="OnClick" />
 
@@ -72,6 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -84,11 +68,11 @@
 
                 <Button
                     android:id="@+id/button_to_statistics"
-                    android:layout_margin="18dp"
                     android:layout_width="300sp"
                     android:layout_height="wrap_content"
-                    android:text="Статистика"
+                    android:layout_margin="18dp"
                     android:background="@drawable/button_states"
+                    android:text="Статистика"
                     android:textSize="18sp"
                     tools:ignore="OnClick" />
 
@@ -113,8 +97,8 @@
                     android:layout_width="300sp"
                     android:layout_height="wrap_content"
                     android:layout_margin="18dp"
-                    android:text="Правила"
                     android:background="@drawable/button_states"
+                    android:text="Правила"
                     android:textSize="18sp"
                     tools:ignore="OnClick" />
 

@@ -122,10 +122,9 @@ class StartActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun updateSecondsField(seconds: Long?) {
         if (seconds != null) {
-            if(seconds > 9) {
+            if (seconds > 9) {
                 textViewTime.text = seconds.toString()
-            }
-            else {
+            } else {
                 textViewTime.text = "0$seconds"
             }
         }
@@ -150,7 +149,14 @@ class StartActivity : AppCompatActivity() {
     }
 
     private fun showWord() {
-        textViewWord.text = currentGame.getRandomWordFromVocabulary()
+        val word = currentGame.getRandomWordFromVocabulary()
+        when {
+            word.length > 11 -> textViewWord.textSize = 40F
+            word.length > 13 -> textViewWord.textSize = 38F
+            word.length > 16 -> textViewWord.textSize = 35F
+            else -> textViewWord.textSize = 45F
+        }
+        textViewWord.text = word
     }
 
     private fun updateScore() {
