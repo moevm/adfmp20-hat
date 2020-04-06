@@ -16,7 +16,7 @@ class AddWordActivity : AppCompatActivity() {
 
         button_to_add_word.setOnClickListener {
             val word = editText_to_add_word.text.toString()
-            gameSettings.vocabular?.add(word)
+            gameSettings.vocabular?.add(word.trimEnd())
             updateWordsQuantity(gameSettings)
         }
 
