@@ -171,10 +171,8 @@ class StartActivity : AppCompatActivity() {
         //Specify the length and width through constants
         val width = LinearLayout.LayoutParams.WRAP_CONTENT
         val height = LinearLayout.LayoutParams.WRAP_CONTENT
-        //Make Inactive Items Outside Of PopupWindow
-        val focusable = true
         //Create a window with our parameters
-        val popupWindow = PopupWindow(popupView, width, height, focusable)
+        val popupWindow = PopupWindow(popupView, width, height)
         button_to_start.visibility = View.GONE
         textViewNameTime.visibility = View.GONE
         textViewTime.visibility = View.GONE
@@ -193,12 +191,6 @@ class StartActivity : AppCompatActivity() {
             button_to_start.visibility = View.VISIBLE
             textViewNameTime.visibility = View.VISIBLE
             textViewTime.visibility = View.VISIBLE
-        }
-        //Handler for clicking on the inactive zone of the window
-        popupView.setOnTouchListener { _, _ ->
-            //Close the window when clicked
-            popupWindow.dismiss()
-            true
         }
     }
 
@@ -224,10 +216,8 @@ class StartActivity : AppCompatActivity() {
         //Specify the length and width through constants
         val width = LinearLayout.LayoutParams.WRAP_CONTENT
         val height = LinearLayout.LayoutParams.WRAP_CONTENT
-        //Make Inactive Items Outside Of PopupWindow
-        val focusable = true
         //Create a window with our parameters
-        val popupWindow = PopupWindow(popupView, width, height, focusable)
+        val popupWindow = PopupWindow(popupView, width, height)
         //Set the location of the window on the screen
         popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
         //Initialize the elements of our window, install the handler
@@ -247,12 +237,6 @@ class StartActivity : AppCompatActivity() {
         buttonStatistics.setOnClickListener {
             val intent = Intent(this, StatisticsActivity::class.java)
             startActivity(intent)
-        }
-        //Handler for clicking on the inactive zone of the window
-        popupView.setOnTouchListener { _, _ ->
-            //Close the window when clicked
-            popupWindow.dismiss()
-            true
         }
     }
 }

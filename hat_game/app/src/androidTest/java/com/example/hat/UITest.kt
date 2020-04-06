@@ -5,6 +5,7 @@ import android.support.test.espresso.Espresso.onData
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.*
 import android.support.test.espresso.assertion.ViewAssertions.matches
+import android.support.test.espresso.matcher.RootMatchers
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import org.hamcrest.CoreMatchers.anything
@@ -175,7 +176,10 @@ class UITest {
         onView(withId(R.id.button_pas)).perform(click())
         Thread.sleep(1000)
 
-        onView(withId(R.id.popup_button_ok)).perform(click())
+        //Change team(popup)
+        onView(withText("OK"))
+            .inRoot(RootMatchers.isPlatformPopup())
+            .perform(click())
         Thread.sleep(1000)
         onView(withId(R.id.button_to_start)).perform(click())
         Thread.sleep(1000)
@@ -190,7 +194,9 @@ class UITest {
         Thread.sleep(1000)
 
         //Go to Statistics
-        onView(withId(R.id.popup_button_statistics)).perform(click())
+        onView(withText("Статистика"))
+            .inRoot(RootMatchers.isPlatformPopup())
+            .perform(click())
         Thread.sleep(2000)
 
         //Go to Main Activity
