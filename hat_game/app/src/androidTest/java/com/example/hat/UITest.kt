@@ -115,7 +115,7 @@ class UITest {
 
         //Add Word: check text
         onView(withId(R.id.textView_player_name4)).check(matches(isDisplayed()))
-        onView(withId(R.id.textView_player_name5)).check(matches(withText("Количество слов в словаре:")))
+        onView(withId(R.id.textView_player_name5)).check(matches(withText("Количество слов в словаре: ")))
         onView(withId(R.id.textView_player_name5)).check(matches(isDisplayed()))
 
         //Add Word: enter word

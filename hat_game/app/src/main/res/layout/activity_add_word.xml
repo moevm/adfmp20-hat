@@ -28,6 +28,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="40sp"
             android:orientation="horizontal"
             android:gravity="center"
@@ -37,8 +38,7 @@
                 android:id="@+id/textView_player_name5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30sp"
-                android:text="Количество слов в словаре:"
+                android:text="Количество слов в словаре: "
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp" />
 
@@ -46,8 +46,8 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30sp"
                 android:textColor="@color/colorBlack"
+                android:textSize="18sp"
                 android:text="0" />
 
         </LinearLayout>
@@ -55,6 +55,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="30sp"
             android:orientation="horizontal"
             android:gravity="center">
@@ -63,12 +64,11 @@
                 android:id="@+id/editText_to_add_word"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="40sp"
                 android:backgroundTint="@color/colorRed"
                 android:textCursorDrawable="@color/colorRed"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Введите слово" />
+                android:hint="Введите слово" />
 
             <Button
                 android:id="@+id/button_to_add_word"
