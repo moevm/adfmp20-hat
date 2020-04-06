@@ -10,7 +10,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        hat_image_layout.bringToFront()
         button_new_game.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
