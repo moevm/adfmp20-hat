@@ -10,82 +10,74 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.*
+import com.example.hat.entity.CountDownTimerSettings
 import com.example.hat.entity.CurrentGameSettings
 import com.example.hat.entity.GameSettings
 import com.example.hat.exception.NoActiveWordsException
 import com.example.hat.exception.VocabularyIsEmptyException
 import com.example.hat.services.GameService
 import kotlinx.android.synthetic.main.activity_start.*
+import java.util.*
 
 class StartActivity : AppCompatActivity() {
 
     private val currentGame = GameService()
-
-    private var isStepActive = true
+    private var gameSettings: GameSettings? = null
+    private var isStepActive = false
+    private var countDownTimer: CountDownTimer? = null
+    private var countDownTimerSettings: CountDownTimerSettings = CountDownTimerSettings()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_start)
-        val gameSettings: GameSettings =
-            intent.getSerializableExtra("gameSettings") as GameSettings
-        updateTextFields(gameSettings)
+        gameSettings = intent.getSerializableExtra("gameSettings") as GameSettings
+        updateTextFields(gameSettings ?: GameSettings())
 
         val currentGameSettings =
             CurrentGameSettings(
-                Pair(gameSettings.team1, 0),
-                Pair(gameSettings.team2, 0),
+                Pair(gameSettings?.team1, 0),
+                Pair(gameSettings?.team2, 0),
                 true,
-                gameSettings.vocabular
+                gameSettings?.vocabular
             )
 
         currentGame.setGame(currentGameSettings)
 
         button_to_start.setOnClickListener {
+            updateCountDownTimerSettings()
             run {
                 changeVisibilityForButtons(true)
+                countDownTimerSettings.remaining = gameSettings?.secondsPerStep?.times(1000) ?: 15
                 try {
                     showWord()
                     isStepActive = true
                 } catch (e: VocabularyIsEmptyException) {
                     isStepActive = false
-                    finishGame(gameSettings, it)
+                    finishGame(gameSettings)
                 }
-                object : CountDownTimer(gameSettings.secondsPerStep?.times(1000) ?: 15, 1000) {
-                    override fun onTick(millisUntilFinished: Long) {
-                        if (isStepActive) {
-                            updateSecondsField(millisUntilFinished / 1000)
-                        } else {
-                            updateSecondsField(0)
-                            this.cancel()
-                        }
-                    }
-
-                    override fun onFinish() {
-                        if (isStepActive) {
-                            finishStep(gameSettings, it)
-                        } else {
-                            updateSecondsField(0)
-                            this.cancel()
-                        }
-                    }
-                }.start()
+                countDownTimerSettings.isPaused = false
+                createCountDownTimer(
+                    gameSettings,
+                    gameSettings?.secondsPerStep?.times(1000) ?: 15
+                )
+                countDownTimer?.start()
             }
         }
 
         button_guessed.setOnClickListener {
-            currentGame.guessWord(textViewWord.text.toString().toLowerCase())
+            currentGame.guessWord(textViewWord.text.toString().toLowerCase(Locale.ROOT))
             updateScore()
-            updateWordsNumberField(gameSettings.vocabular?.size)
+            updateWordsNumberField(gameSettings?.vocabular?.size)
             try {
                 showWord()
             } catch (e: NoActiveWordsException) {
                 updateSecondsField(0)
                 isStepActive = false
-                finishStep(gameSettings, it)
+                finishStep(gameSettings)
             } catch (e: VocabularyIsEmptyException) {
                 updateSecondsField(0)
                 isStepActive = false
-                finishGame(gameSettings, it)
+                finishGame(gameSettings)
             } finally {
                 updateScore()
             }
@@ -98,11 +90,11 @@ class StartActivity : AppCompatActivity() {
             } catch (e: NoActiveWordsException) {
                 updateSecondsField(0)
                 isStepActive = false
-                finishStep(gameSettings, it)
+                finishStep(gameSettings)
             } catch (e: VocabularyIsEmptyException) {
                 updateSecondsField(0)
                 isStepActive = false
-                finishGame(gameSettings, it)
+                finishGame(gameSettings)
             } finally {
                 updateScore()
             }
@@ -194,24 +186,30 @@ class StartActivity : AppCompatActivity() {
         }
     }
 
-    private fun finishStep(gameSettings: GameSettings, view: View) {
+    private fun finishStep(gameSettings: GameSettings?) {
         changeVisibilityForButtons(false)
         currentGame.finishRound()
         if (currentGame.isTeam1Active()) {
-            updateTeamField(gameSettings.team1)
-            showPopUpChangeTeam(view, gameSettings.team1 ?: "")
+            updateTeamField(gameSettings?.team1)
+            showPopUpChangeTeam(
+                findViewById<View>(android.R.id.content).rootView,
+                gameSettings?.team1 ?: ""
+            )
         } else {
-            updateTeamField(gameSettings.team2)
-            showPopUpChangeTeam(view, gameSettings.team2 ?: "")
+            updateTeamField(gameSettings?.team2)
+            showPopUpChangeTeam(
+                findViewById<View>(android.R.id.content).rootView,
+                gameSettings?.team2 ?: ""
+            )
         }
-        updateSecondsField(gameSettings.secondsPerStep)
+        updateSecondsField(gameSettings?.secondsPerStep)
         updateScore()
     }
 
-    private fun finishGame(gameSettings: GameSettings, view: View) {
+    private fun finishGame(gameSettings: GameSettings?) {
         currentGame.saveStatisticsToFile(applicationContext)
         val inflater =
-            view.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            findViewById<View>(android.R.id.content).rootView.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         val popupView: View = inflater.inflate(R.layout.popup_game_finished, null)
         //Specify the length and width through constants
         val width = LinearLayout.LayoutParams.WRAP_CONTENT
@@ -219,11 +217,16 @@ class StartActivity : AppCompatActivity() {
         //Create a window with our parameters
         val popupWindow = PopupWindow(popupView, width, height)
         //Set the location of the window on the screen
-        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0)
+        popupWindow.showAtLocation(
+            findViewById<View>(android.R.id.content).rootView,
+            Gravity.CENTER,
+            0,
+            0
+        )
         //Initialize the elements of our window, install the handler
         val test2 = popupView.findViewById<TextView>(R.id.finishText)
         test2.text =
-            "Игра окончена! \n ${gameSettings.team1}: ${currentGame.getTeam1Score()}   ${gameSettings.team2}: ${currentGame.getTeam2Score()}"
+            "Игра окончена! \n ${gameSettings?.team1}: ${currentGame.getTeam1Score()}   ${gameSettings?.team2}: ${currentGame.getTeam2Score()}"
 
         val buttonMainMenu =
             popupView.findViewById<Button>(R.id.popup_button_menu)
@@ -237,6 +240,61 @@ class StartActivity : AppCompatActivity() {
         buttonStatistics.setOnClickListener {
             val intent = Intent(this, StatisticsActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun createCountDownTimer(gameSettings: GameSettings?, millisInFuture: Long) {
+        this.countDownTimer = object : CountDownTimer(millisInFuture + 1000, 1000) {
+            override fun onTick(millisUntilFinished: Long) {
+                countDownTimerSettings.currentValue = countDownTimerSettings.currentValue + 1000
+                countDownTimerSettings.remaining = countDownTimerSettings.remaining - 1000
+                if (isStepActive && !countDownTimerSettings.isPaused) {
+                    updateSecondsField(millisUntilFinished / 1000)
+                } else {
+                    updateSecondsField(0)
+                    this.cancel()
+                }
+            }
+
+            override fun onFinish() {
+                if (isStepActive && !countDownTimerSettings.isPaused) {
+                    finishStep(gameSettings)
+                } else {
+                    updateSecondsField(0)
+                    this.cancel()
+                }
+                countDownTimerSettings.isPaused = true
+            }
+        }
+    }
+
+    private fun updateCountDownTimerSettings() {
+        countDownTimerSettings = CountDownTimerSettings()
+        countDownTimerSettings.remaining = gameSettings?.secondsPerStep?.times(1000) ?: 15
+    }
+
+    private fun pauseTimer() {
+        isStepActive = false
+        countDownTimer?.cancel()
+        countDownTimerSettings.isPaused = true
+        isStepActive = true
+    }
+
+    override fun onPause() {
+        super.onPause()
+        pauseTimer()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (isStepActive) {
+            countDownTimerSettings.isPaused = false
+            createCountDownTimer(
+                gameSettings,
+                countDownTimerSettings.remaining
+            )
+            changeVisibilityForButtons(true)
+            countDownTimer?.start()
         }
     }
 }

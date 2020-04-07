@@ -18,7 +18,8 @@ class StatisticsServiceUnitTest {
         val context = Mockito.mock(Context::class.java)
         val gameService = Mockito.mock(GameService::class.java)
         val statisticsService = Mockito.mock(StatisticsService::class.java)
-        Mockito.`when`(statisticsService.loadStatistics(context)).thenReturn(Statistics(hashMapOf()))
+        Mockito.`when`(statisticsService.loadStatistics(context))
+            .thenReturn(Statistics(hashMapOf()))
         gameService?.saveStatisticsToFile(context)
         Mockito.verify(gameService, times(1)).saveStatisticsToFile(context)
     }

@@ -3,9 +3,9 @@ package com.example.hat
 import android.content.Context
 import com.example.hat.entity.Vocabular
 import com.example.hat.util.UtilHat
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.mockito.Mockito
-import org.junit.Assert.*
 
 /**
  * Tests for UtilHat class
