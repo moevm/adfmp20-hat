@@ -143,9 +143,9 @@ class StartActivity : AppCompatActivity() {
     private fun showWord() {
         val word = currentGame.getRandomWordFromVocabulary()
         when {
-            word.length > 11 -> textViewWord.textSize = 40F
-            word.length > 13 -> textViewWord.textSize = 34F
             word.length > 16 -> textViewWord.textSize = 30F
+            word.length > 13 -> textViewWord.textSize = 34F
+            word.length > 11 -> textViewWord.textSize = 40F
             else -> textViewWord.textSize = 45F
         }
         textViewWord.text = word
